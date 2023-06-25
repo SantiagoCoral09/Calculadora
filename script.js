@@ -1,34 +1,34 @@
 /*
     ====================================================
-    ================= CALCULATOR LOGIC =================
+    ================= LÓGICA DE LA CALCULADORA =================
     ====================================================
 */ 
 
-// get the result element
+// Obtener el elemento para el resultado
 let result  = document.getElementById("result");
 
-// Input numbers by key pressed
+// Ingresar números por tecla presionada
 function input(num){
     let number = result.value;
     result.value = number + num;
 }
 
-// Calculator logic
+// Lógica de la calculadora
 function calc(){
     if(result.value != ""){
         let result2  = result.value;
         result.value = eval(result2)
     } else{
-        alert("Erro! Adicione valores válidos.")
+        alert("¡Error! Digitar valores válidos.")
     }
 }
 
-// Reset button
+// Botón para reiniciar
 function reset(){
     result.value = "";
 }
 
-// Del button
+// Botón para borrar
 function del(){
     let result2  = result.value;
     result.value = result2.substring(0, result2.length - 1);
@@ -36,11 +36,11 @@ function del(){
 
 /*
     ====================================================
-    =================== TOGGLE THEME ===================
+    =================== Cambiar Tema ===================
     ====================================================
 */
 
-// All colors for differents themes
+// Todos los colores para difereneetes temas
 const theme = {
     defaul(){
         root.style.setProperty('--background'          , '#3a4764');
@@ -94,14 +94,14 @@ const theme = {
     }
 }
 
-// Get the root element
+// Obtener el elemento root
 var root = document.querySelector(':root');
 
-// Checking the user themes preference
+// Chequear preferencias de tema del usuario
 const darkThemeMq  = window.matchMedia("(prefers-color-scheme: dark)");
 const lightThemeMq = window.matchMedia("(prefers-color-scheme: light)");
 
-// changing the theme with the results above
+// cambiando el tema con los resultados anteriores
 if (darkThemeMq.matches) {
     document.getElementById('btnTheme').value = "3";
     theme.dark();
@@ -113,12 +113,12 @@ if (darkThemeMq.matches) {
     theme.defaul();    
 }
 
-// Create a function for recive the value of range input
+// Crear una función para recibir el valor de rango de entrada
 function myFunction_set(val) {
     // receiving the input type range value
     document.getElementById('btnTheme').value = val; 
 
-    // changing the theme with the results above
+    // Cambiar el tema con los resultados anteriores
     if(val == 1){
         theme.defaul();
     } 
