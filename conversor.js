@@ -64,3 +64,32 @@ bar.addEventListener(
 const convertToBar = (valor) => (Number(valor) /100000);
 const convertToPascal = (valor) => ((Number(valor) *100000));
 
+
+////Conversor de Masa de Kilos a gramos
+let kilogramos = document.getElementById("kilogramos");
+let gramos = document.getElementById("gramos");
+
+kilogramos.addEventListener(
+  "input",
+  debounce(() => {
+    if (kilogramos.value.length != 0) {
+      gramos.value = convertTogramos(kilogramos.value);
+    } else {
+      gramos.value = "";
+    }
+  }, 500)
+);
+
+gramos.addEventListener(
+  "input",
+  debounce(() => {
+    if (gramos.value.length != 0) {
+      kilogramos.value = convertToKg(gramos.value);
+    } else {
+      kilogramos.value = "";
+    }
+  }, 500)
+);
+
+const convertTogramos = (valor) => (Number(valor) *1000);
+const convertToKg = (valor) => ((Number(valor) /1000));
