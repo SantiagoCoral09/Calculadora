@@ -93,3 +93,33 @@ gramos.addEventListener(
 
 const convertTogramos = (valor) => (Number(valor) *1000);
 const convertToKg = (valor) => ((Number(valor) /1000));
+
+
+////Conversor de Longitud de metros a centimetros
+let metros = document.getElementById("metros");
+let centimetros = document.getElementById("centimetros");
+
+metros.addEventListener(
+  "input",
+  debounce(() => {
+    if (metros.value.length != 0) {
+      centimetros.value = convertTocentimetros(metros.value);
+    } else {
+      centimetros.value = "";
+    }
+  }, 500)
+);
+
+centimetros.addEventListener(
+  "input",
+  debounce(() => {
+    if (centimetros.value.length != 0) {
+      metros.value = convertToMetros(centimetros.value);
+    } else {
+      metros.value = "";
+    }
+  }, 500)
+);
+
+const convertTocentimetros = (valor) => (Number(valor) *100);
+const convertToMetros = (valor) => ((Number(valor) /100));
